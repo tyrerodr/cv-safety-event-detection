@@ -12,12 +12,22 @@ The assignment includes two main parts:
 
 ## Project Structure
 ```bash
-protex-cv-takehome/
+protex-cv-take-home/
+│
 ├── data/
-├── outputs/
+│   └── sample_annotations.json
+│
 ├── src/
-├── .env.example
-├── .gitignore
+│   ├── config.py
+│   ├── geometry.py
+│   ├── event_detector.py
+│   ├── visualizer.py
+│   ├── video_writer.py
+│   └── main.py
+│
+├── outputs/
+│   └── output.mp4
+│
 ├── README.md
 └── requirements.txt
 ```
