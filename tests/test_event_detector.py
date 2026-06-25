@@ -1,7 +1,7 @@
 from event_detector import detect_person_car_events
 
 
-def test_detects_person_and_car_inside_same_roi():
+def test_detects_person_and_car_inside_same_roi() -> None:
     detections = [
         {
             "class": "Person",
@@ -37,7 +37,7 @@ def test_detects_person_and_car_inside_same_roi():
     assert events[0]["camera_name"] == "Test Camera"
 
 
-def test_does_not_detect_event_with_only_person():
+def test_does_not_detect_event_with_only_person() -> None:
     detections = [
         {
             "class": "Person",

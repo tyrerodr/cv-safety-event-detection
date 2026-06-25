@@ -1,7 +1,7 @@
 from slack_formatter import format_event_as_slack_message
 
 
-def test_formats_event_as_slack_message():
+def test_formats_event_as_slack_message() -> None:
     event = {
         "camera_name": "Test Camera",
         "rule_name": "Person and Car inside ROI",
