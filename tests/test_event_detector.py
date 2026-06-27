@@ -1,5 +1,4 @@
-from event_detector import detect_person_car_events
-
+from event_detector import PersonCarEventDetector
 
 def test_detects_person_and_car_inside_same_roi() -> None:
     detections = [
@@ -22,12 +21,15 @@ def test_detects_person_and_car_inside_same_roi() -> None:
         ]
     }
 
-    events = detect_person_car_events(
-        detections=detections,
+    event_detector = PersonCarEventDetector(
         rois=rois,
+        rule_name="Person and Car inside ROI",
+    )
+
+    events = event_detector.detect(
+        detections=detections,
         timestamp=1000,
         frame_num=1,
-        rule_name="Person and Car inside ROI",
         camera_name="Test Camera",
     )
 
@@ -40,7 +42,7 @@ def test_detects_person_and_car_inside_same_roi() -> None:
 def test_does_not_detect_event_with_only_person() -> None:
     detections = [
         {
-            "class": "Person",
+            "class": "person",
             "point": (100, 100),
         }
     ]
@@ -54,12 +56,15 @@ def test_does_not_detect_event_with_only_person() -> None:
         ]
     }
 
-    events = detect_person_car_events(
-        detections=detections,
+    event_detector = PersonCarEventDetector(
         rois=rois,
+        rule_name="Person and Car inside ROI",
+    )
+
+    events = event_detector.detect(
+        detections=detections,
         timestamp=1000,
         frame_num=1,
-        rule_name="Person and Car inside ROI",
         camera_name="Test Camera",
     )
 
